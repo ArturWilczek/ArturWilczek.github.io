@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liczebniki</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div
+      class="vh-100 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div
+        class="m-2 font-weight-bold text-info"
+        style="font-size: 4rem"
+        id="liczba"
+      ></div>
+      <label class="m-2 text-secondary" for="liczebnik"
+        >Wpisz liczebnik słownie po angielsku i naciśnij <b>ENTER</b></label
+      >
+      <input
+        class="m-4 text-center form-control w-25"
+        style="font-size: 2rem"
+        id="liczebnik"
+        type="text"
+      />
+      <div
+        id="message"
+        class="font-weight-bold"
+        style="font-size: 1.5rem"
+      ></div>
+      <button class="m-4 btn btn-primary btn-lg" id="btn">Następny</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
