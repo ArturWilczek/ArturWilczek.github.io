@@ -22,28 +22,32 @@ const liczebniki = [
 ];
 
 let losowy;
+const b01 = document.getElementById("b01");
+const b02 = document.getElementById("b02");
+const i01 = document.getElementById("i01");
+const d01 = document.getElementById("d01");
+
+b01.addEventListener("click", sprawdz);
+b02.addEventListener("click", losujLiczebnik);
 
 function losujLiczebnik() {
+  b01.hidden = false;
+  b02.hidden = true;
   losowy = getRandomInt(1, 20);
-  console.log(losowy);
-  document.getElementById("liczba").innerHTML = losowy;
-  document.getElementById("liczebnik").value = "";
+  d01.innerHTML = losowy;
+  i01.value = "";
   setMessage("");
 }
 
-document.getElementById("liczebnik").addEventListener("keyup", (e) => {
-  if (e.keyCode != 13) return;
-  let wpisany = e.target.value.trim().toLowerCase();
-  console.log(wpisany);
+function sprawdz() {
+  let wpisany = i01.value.trim().toLowerCase();
+  if (!wpisany) return;
   if (wpisany !== liczebniki[losowy - 1])
-    setMessage(
-      `BŁAD! Prawidłowa wartość to <b>${liczebniki[
-        losowy - 1
-      ].toUpperCase()}</b>`,
-      false
-    );
+    setMessage(`BŁAD! Prawidłowo: <b>${liczebniki[losowy - 1].toUpperCase()}</b>`, false);
   else setMessage(`BRAWO!`, true);
-});
+  b01.hidden = true;
+  b02.hidden = false;
+}
 
 function setMessage(txt, ok) {
   const msg = document.getElementById("message");
@@ -52,12 +56,14 @@ function setMessage(txt, ok) {
   else msg.className = "text-danger";
 }
 
-document.getElementById("btn").addEventListener("click", losujLiczebnik);
-
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-losujLiczebnik();
+function start() {
+  losujLiczebnik();
+}
+
+start();
