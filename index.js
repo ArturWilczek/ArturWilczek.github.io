@@ -39,6 +39,7 @@ function losujLiczebnik() {
   losowy = getRandomInt(1, 20);
   d01.innerHTML = losowy;
   i01.value = "";
+  i01.focus();
   setMessage("");
 }
 
