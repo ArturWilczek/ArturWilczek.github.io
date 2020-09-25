@@ -33,6 +33,7 @@ b02.addEventListener("click", losujLiczebnik);
 function losujLiczebnik() {
   b01.hidden = false;
   b02.hidden = true;
+  i01.hidden = false;
   losowy = getRandomInt(1, 20);
   d01.innerHTML = losowy;
   i01.value = "";
@@ -43,17 +44,24 @@ function sprawdz() {
   let wpisany = i01.value.trim().toLowerCase();
   if (!wpisany) return;
   if (wpisany !== liczebniki[losowy - 1])
-    setMessage(`BŁAD! Prawidłowo: <b>${liczebniki[losowy - 1].toUpperCase()}</b>`, false);
-  else setMessage(`BRAWO!`, true);
+    setMessage(
+      `<b>BŁAD!</b><br>Wpisałeś: <b>${wpisany.toUpperCase()}</b><br>Powinno być: <b>${liczebniki[
+        losowy - 1
+      ].toUpperCase()}</b>`,
+      false
+    );
+  else setMessage(`<b>BRAWO!</b><br><b>${losowy}</b> to <b>${wpisany.toUpperCase()}</b>`, true);
   b01.hidden = true;
   b02.hidden = false;
+  i01.hidden = true;
 }
 
 function setMessage(txt, ok) {
   const msg = document.getElementById("message");
   msg.innerHTML = txt;
-  if (ok) msg.className = "text-success";
-  else msg.className = "text-danger";
+  msg.className = "text-center";
+  if (ok) msg.className += " text-success";
+  else msg.className += " text-danger";
 }
 
 function getRandomInt(min, max) {
