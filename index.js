@@ -45,7 +45,7 @@ function sprawdz() {
   if (!wpisany) return;
   if (wpisany !== liczebniki[losowy - 1])
     setMessage(
-      `<b>BŁAD!</b><br>Wpisałeś: <b>${wpisany.toUpperCase()}</b><br>Powinno być: <b>${liczebniki[
+      `<b>BŁĄD!</b><br>Wpisałeś: <b>${wpisany.toUpperCase()}</b><br>Powinno być: <b>${liczebniki[
         losowy - 1
       ].toUpperCase()}</b>`,
       false
